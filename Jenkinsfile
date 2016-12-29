@@ -26,4 +26,7 @@ node {
             password: [value: 'devdev', hidden: true]
          ])
    }
+   stage('ChatOps Notification') {
+      slackSend channel: '#general', color: 'good', message: 'F5file Ran Successfully', teamDomain: 'uniopsteam', token: 'zkMRYtEXCEG3Q2FlUsS2Hjjv'
+   }   
 }
