@@ -24,19 +24,21 @@
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
-            host: "54.221.53.201"
+            host: "10.2.1.1"
             name: "member1"
             validate_certs: "false"
-            state: present
+            state: "present"
 
       - name: Add a new node member2
         bigip_node:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
-            host: "54.221.53.202"
+            host: "10.2.1.2"
             name: "member2"
             validate_certs: "false"
+            state: "present"
+
 
       - name: Create the pool1 pool
         bigip_pool:
