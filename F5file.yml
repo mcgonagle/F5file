@@ -27,6 +27,7 @@
             host: "54.221.53.201"
             name: "member1"
             validate_certs: "false"
+            state: present
 
       - name: Add a new node member2
         bigip_node:
