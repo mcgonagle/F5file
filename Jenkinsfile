@@ -6,9 +6,9 @@ node {
    stage('Testing') {
       //Run the tests
       echo 'ansible-lint'
-      sh "/usr/local/bin/ansible-lint site.yml"
+      sh "/usr/local/bin/ansible-lint F5file.yml"
       echo 'ansible-review'
-      sh "/usr/local/bin/ansible-review site.yml"
+      sh "/usr/local/bin/ansible-review F5file.yml"
    }
    stage('Approval') {
       //Gate the process and require approval
