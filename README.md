@@ -16,14 +16,14 @@ java -jar jenkins.war
 
 4) Install Ansible Plugin in Jenkins
 
-5) Install Ansible
+5) Install Ansible, ansible-lint and ansible-review
 
 ```
 sudo /usr/local/bin/pip install --upgrade ansible
 
 sudo /usr/local/bin/pip install ansible-lint
 
-sudo pip install ansible-review 
+sudo /usr/local/bin/pip install ansible-review 
 ```
 
 6) Create pipeline job
