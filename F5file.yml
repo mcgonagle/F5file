@@ -1,4 +1,4 @@
-- name: Test bigip_facts
+- name: Test bigip modules
   hosts: bigip_hosts
   connection: local
 
@@ -24,18 +24,21 @@
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
-            host: "54.221.53.201"
+            host: "10.2.1.1"
             name: "member1"
             validate_certs: "false"
+            state: "present"
 
       - name: Add a new node member2
         bigip_node:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
-            host: "54.221.53.202"
+            host: "10.2.1.2"
             name: "member2"
             validate_certs: "false"
+            state: "present"
+
 
       - name: Create the pool1 pool
         bigip_pool:
@@ -120,7 +123,7 @@
             password: "{{password}}"
             host: "{{ item }}"
             pool: "pool1"
-            port: "22"
+            port: "80"
             state: "present"
             validate_certs: "false"
         with_items:
@@ -133,7 +136,7 @@
             password: "{{password}}"
             host: "{{ item }}"
             pool: "pool2"
-            port: "22"
+            port: "80"
             state: "present"
             validate_certs: "false"
         with_items:
