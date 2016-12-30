@@ -27,6 +27,7 @@ node {
          ])
    }
    stage('ChatOps Notification') {
+      //chatops slack message that ansible run has completed
       slackSend( 
          channel: '#general', 
          color: 'good', 
