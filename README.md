@@ -14,7 +14,7 @@ java -jar jenkins.war
 
 3) License Jenkins
 
-4) Install Ansible Plugin in Jenkins
+4) Install Ansible Plugin and Slack Notification Plugin in Jenkins
 
 5) Install Ansible, ansible-lint and ansible-review
 
