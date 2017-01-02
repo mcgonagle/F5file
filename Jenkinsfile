@@ -23,7 +23,8 @@ node {
          sudoUser: null,
          extraVars: [
             username: 'dev',
-            password: [value: 'devdev', hidden: true]
+            password: [value: 'devdev', hidden: true],
+            hosts: 'bigip_hosts'
          ])
    }
    stage('ChatOps Notification') {
