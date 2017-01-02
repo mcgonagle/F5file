@@ -1,5 +1,5 @@
 - name: Test bigip modules
-  hosts: bigip_hosts
+  hosts: "{{ hosts }}"
   connection: local
 
   tasks:
