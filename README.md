@@ -34,4 +34,9 @@ sudo /usr/bin/pip-2.7 install ansible-review
 sudo /usr/bin/pip-2.7 install bigsuds
 ```
 
-6) Create pipeline job
+6) Install git
+```
+sudo yum install git
+```
+
+7) Create pipeline job
