@@ -19,11 +19,19 @@ java -jar jenkins.war
 5) Install Ansible, ansible-lint and ansible-review
 
 ```
-sudo /usr/local/bin/pip install --upgrade ansible
+sudo yum install -y gcc python27 python27-devel python27-pip
 
-sudo /usr/local/bin/pip install ansible-lint
+sudo yum install libffi-devel
 
-sudo /usr/local/bin/pip install ansible-review 
+sudo yum install openssl-devel
+
+sudo /usr/bin/pip-2.7 install --upgrade ansible
+
+sudo /usr/bin/pip-2.7install ansible-lint
+
+sudo /usr/bin/pip-2.7 install ansible-review 
+
+sudo /usr/bin/pip-2.7 install bigsuds
 ```
 
 6) Create pipeline job
