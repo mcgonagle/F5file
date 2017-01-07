@@ -29,7 +29,7 @@
             validate_certs: "false"
             state: "present"
             monitors:
-              - /Common/icmp  
+              - /Common/icmp
 
       - name: Create the gw_pool pool
         bigip_pool:
