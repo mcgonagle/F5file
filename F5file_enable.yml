@@ -1,0 +1,16 @@
+- name: Re-enable the nodes
+  hosts: "{{ hosts }}"
+  connection: local
+
+      - name: Add generic_web01 back to gw_pool
+        bigip_pool_member:
+            server: "{{ inventory_hostname }}"
+            user: "{{username}}"
+            password: "{{password}}"
+            host: "{{ item }}"
+            pool: "gw_pool"
+            port: "80"
+            state: "present"
+            validate_certs: "false"
+        with_items:
+            - generic_web01
