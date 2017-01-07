@@ -2,7 +2,7 @@
   hosts: "{{ hosts }}"
   connection: local
 
-      - name: Add members back into gw_pool
+     - name: Add members back into gw_pool
         bigip_pool_member:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
