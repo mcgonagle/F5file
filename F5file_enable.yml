@@ -1,8 +1,9 @@
-- name: Re-enable the nodes
+- name: Re-enable node 
   hosts: "{{ hosts }}"
   connection: local
 
-     - name: Add members back into gw_pool
+  tasks:
+      - name: Enable node back in pool 
         bigip_pool_member:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
@@ -13,4 +14,4 @@
             port: "80"
             validate_certs: "false"
         with_items:
-            - generic_web01
+            - generic-web01
