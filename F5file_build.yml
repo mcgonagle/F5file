@@ -28,6 +28,8 @@
             name: "generic-web01"
             validate_certs: "false"
             state: "present"
+            monitors:
+              - /Common/icmp  
 
       - name: Create the gw_pool pool
         bigip_pool:
@@ -36,6 +38,8 @@
             password: "{{password}}"
             name: "gw_pool"
             validate_certs: "false"
+            monitors:
+              - /Common/http
 
       - name: Add members into gw_pool
         bigip_pool_member:
