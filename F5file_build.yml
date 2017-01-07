@@ -79,6 +79,14 @@
             src: "irule-sorry.tcl"
             validate_certs: "no"
 
+      - name: Add the iRule with tmsh 
+        bigip_irule:
+            server: "{{ inventory_hostname }}"
+            user: "{{username}}"
+            password: "{{password}}"
+            command: "tmsh modify ltm virtual gw_vip rules { Sorry_iRule }"
+            validate_certs: "no"
+
       - name: Drop members out of gw_pool
         bigip_pool_member:
             server: "{{ inventory_hostname }}"
