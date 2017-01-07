@@ -19,13 +19,25 @@
         debug:
             msg: "I have software version {{ software[0].version }}"
 
-      - name: Add a new node generic webhost
+      - name: Add a new node generic webhost 01
         bigip_node:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
             host: "10.0.2.167"
             name: "generic-web01"
+            validate_certs: "false"
+            state: "present"
+            monitors:
+              - /Common/icmp
+
+      - name: Add a new node generic webhost 02
+        bigip_node:
+            server: "{{ inventory_hostname }}"
+            user: "{{username}}"
+            password: "{{password}}"
+            host: "10.0.2.168"
+            name: "generic-web02"
             validate_certs: "false"
             state: "present"
             monitors:
@@ -53,6 +65,7 @@
             validate_certs: "false"
         with_items:
             - generic-web01
+            - generic-web02
 
       - name: Add the iRule contained in the static file irule-sorry.tcl to the LTM module
         bigip_irule:
@@ -94,3 +107,4 @@
             validate_certs: "false"
         with_items:
             - generic-web01
+            - generic-web02
