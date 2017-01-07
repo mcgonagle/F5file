@@ -71,7 +71,7 @@
 
       - name: Add the iRule contained in the static file irule-sorry.tcl to the LTM module
         bigip_irule:
-            module: "ltm" 
+            module: "ltm"
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
