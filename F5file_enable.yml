@@ -1,4 +1,4 @@
-- name: Re-enable node 
+- name: Re-enable node
   hosts: "{{ hosts }}"
   connection: local
 
