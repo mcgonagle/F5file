@@ -9,6 +9,7 @@
             user: "{{username}}"
             password: "{{password}}"
             state: "present"
+            session_state: "enabled"
             host: "{{ item }}"
             pool: "gw_pool"
             port: "80"
