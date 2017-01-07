@@ -54,6 +54,16 @@
         with_items:
             - generic-web01
 
+      - name: Add the iRule contained in the static file irule-sorry.tcl to the LTM module
+        bigip_irule:
+            module: "ltm"
+            server: "{{ inventory_hostname }}"
+            user: "{{username}}"
+            password: "{{password}}"
+            name: "Sorry_iRule"
+            src: "irule-sorry.tcl"
+            validate_certs: "no"
+
       - name: Create a VIP
         bigip_virtual_server:
             server: "{{ inventory_hostname }}"
@@ -67,16 +77,8 @@
             snat: "Automap"
             all_profiles:
                 - "http"
-            validate_certs: "no"
-
-      - name: Add the iRule contained in the static file irule-sorry.tcl to the LTM module
-        bigip_irule:
-            module: "ltm"
-            server: "{{ inventory_hostname }}"
-            user: "{{username}}"
-            password: "{{password}}"
-            name: "Sorry_iRule"
-            src: "irule-sorry.tcl"
+            all_rules:
+                - "Sorry_iRule"
             validate_certs: "no"
 
       - name: Drop members out of gw_pool
