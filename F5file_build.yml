@@ -80,7 +80,7 @@
             validate_certs: "no"
 
       - name: Add the iRule with tmsh
-        bigip_irule:
+        bigip_command:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
