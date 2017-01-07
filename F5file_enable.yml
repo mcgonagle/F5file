@@ -1,9 +1,9 @@
-- name: Re-enable node 
+- name: Re-enable node
   hosts: "{{ hosts }}"
   connection: local
 
   tasks:
-      - name: Enable node back in pool 
+      - name: Enable node back in pool
         bigip_pool_member:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
