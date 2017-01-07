@@ -69,7 +69,7 @@
                 - "http"
             validate_certs: "no"
 
-      - name: Add the iRule contained in the static file irule-sorry.tcl to the LTM module 
+      - name: Add the iRule contained in the static file irule-sorry.tcl to the LTM module
         bigip_irule:
             module: "ltm" 
             server: "{{ inventory_hostname }}"
@@ -79,7 +79,7 @@
             src: "irule-sorry.tcl"
             validate_certs: "no"
 
-      - name: Add the iRule with tmsh 
+      - name: Add the iRule with tmsh
         bigip_irule:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
