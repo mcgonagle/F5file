@@ -76,4 +76,4 @@
             port: "80"
             validate_certs: "false"
         with_items:
-            - generic_web01 
+            - generic_web01
