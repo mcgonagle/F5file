@@ -84,7 +84,7 @@
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
-            command: "tmsh modify ltm virtual gw_vip rules { Sorry_iRule }"
+            command: "modify ltm virtual gw_vip rules { Sorry_iRule }"
             validate_certs: "no"
 
       - name: Drop members out of gw_pool
