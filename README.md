@@ -21,13 +21,13 @@ java -jar jenkins.war
 ```
 sudo yum install -y gcc python27 python27-devel python27-pip
 
-sudo yum install libffi-devel
+sudo yum install -y libffi-devel
 
-sudo yum install openssl-devel
+sudo yum install -y openssl-devel
 
 sudo /usr/bin/pip-2.7 install --upgrade ansible
 
-sudo /usr/bin/pip-2.7install ansible-lint
+sudo /usr/bin/pip-2.7 install ansible-lint
 
 sudo /usr/bin/pip-2.7 install ansible-review 
 
@@ -36,7 +36,8 @@ sudo /usr/bin/pip-2.7 install bigsuds
 
 6) Install git
 ```
-sudo yum install git
+sudo yum install -y git
+
 ```
 
 7) Create pipeline job
