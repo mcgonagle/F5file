@@ -32,6 +32,8 @@ sudo /usr/bin/pip-2.7 install ansible-lint
 sudo /usr/bin/pip-2.7 install ansible-review 
 
 sudo /usr/bin/pip-2.7 install bigsuds
+
+sudo /usr/bin/pip-2.7 install f5-sdk
 ```
 
 6) Install git
