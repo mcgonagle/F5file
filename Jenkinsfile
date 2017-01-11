@@ -31,16 +31,6 @@ node {
          token: 'zkMRYtEXCEG3Q2FlUsS2Hjjv'
          )
    }
-   stage('Website Functional Test') {
-      sh '/usr/bin/curl http://10.0.2.167|grep apache'
-      slackSend( 
-         channel: '#general', 
-         color: 'good', 
-         message: 'Apache is Running and has passed the test', 
-         teamDomain: 'uniopsteam', 
-         token: 'zkMRYtEXCEG3Q2FlUsS2Hjjv'
-         )
-   }
    stage('Approval') {
       //Gate the process and require approval
       input 'Proceed?'
