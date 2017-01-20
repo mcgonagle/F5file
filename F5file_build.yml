@@ -61,7 +61,7 @@
             state: "present"
             host: "{{ item }}"
             pool: "gw_pool"
-            port: "80"
+            port: "8080"
             validate_certs: "false"
         with_items:
             - generic-web01
@@ -103,7 +103,7 @@
             session_state: "disabled"
             host: "{{ item }}"
             pool: "gw_pool"
-            port: "80"
+            port: "8080"
             validate_certs: "false"
         with_items:
             - generic-web01
