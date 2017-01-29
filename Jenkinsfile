@@ -7,8 +7,6 @@ node {
       //Run the tests
       sh "/usr/local/bin/ansible-lint F5file_build.yml"
       sh "/usr/local/bin/ansible-review F5file_build.yml"
-      sh "/usr/local/bin/ansible-lint F5file_enable.yml"
-      sh "/usr/local/bin/ansible-review F5file_enable.yml"
    }
    stage('Build') {
        //Ansible Playbook
