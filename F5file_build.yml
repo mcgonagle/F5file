@@ -51,7 +51,7 @@
             name: "gw_pool"
             validate_certs: "false"
             monitors:
-              - /Common/http
+              - /Common/http_head_f5
 
       - name: Add members into gw_pool
         bigip_pool_member:
@@ -77,6 +77,16 @@
             src: "irule-sorry.tcl"
             validate_certs: "no"
 
+      - name: Add the iRule contained in the static file bodgeit-rewrite.tcl to the LTM module
+        bigip_irule:
+            module: "ltm"
+            server: "{{ inventory_hostname }}"
+            user: "{{username}}"
+            password: "{{password}}"
+            name: "Bodgeit_Rewrite"
+            src: "bodgeit-rewrite.tcl"
+            validate_certs: "no"
+
       - name: Create a VIP
         bigip_virtual_server:
             server: "{{ inventory_hostname }}"
@@ -92,6 +102,7 @@
                 - "http"
             all_rules:
                 - "Sorry_iRule"
+                - "Bodgeit_Rewrite"
             validate_certs: "no"
 
       - name: Drop members out of gw_pool
