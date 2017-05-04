@@ -25,7 +25,7 @@
             user: "{{username}}"
             password: "{{password}}"
             host: "10.0.2.167"
-            name: "generic-web01"
+            name: "member1"
             validate_certs: "false"
             state: "present"
             monitors:
@@ -37,7 +37,7 @@
             user: "{{username}}"
             password: "{{password}}"
             host: "10.0.2.168"
-            name: "generic-web02"
+            name: "member2"
             validate_certs: "false"
             state: "present"
             monitors:
@@ -48,7 +48,7 @@
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
             password: "{{password}}"
-            name: "gw_pool"
+            name: "pool1"
             validate_certs: "false"
             monitors:
               - /Common/http_head_f5
@@ -60,12 +60,12 @@
             password: "{{password}}"
             state: "present"
             host: "{{ item }}"
-            pool: "gw_pool"
+            pool: "pool1"
             port: "8080"
             validate_certs: "false"
         with_items:
-            - generic-web01
-            - generic-web02
+            - member1
+            - member2
 
       - name: Add the iRule contained in the static file irule-sorry.tcl to the LTM module
         bigip_irule:
@@ -94,8 +94,8 @@
             destination: "10.0.2.183"
             user: "{{username}}"
             password: "{{password}}"
-            name: "gw_vip"
-            pool: "gw_pool"
+            name: "vip-1"
+            pool: "pool1"
             port: "80"
             snat: "Automap"
             all_profiles:
@@ -105,7 +105,7 @@
                 - "Bodgeit_Rewrite"
             validate_certs: "no"
 
-      - name: Drop members out of gw_pool
+      - name: Drop members out of pool1
         bigip_pool_member:
             server: "{{ inventory_hostname }}"
             user: "{{username}}"
@@ -113,9 +113,9 @@
             state: "present"
             session_state: "disabled"
             host: "{{ item }}"
-            pool: "gw_pool"
+            pool: "pool1"
             port: "8080"
             validate_certs: "false"
         with_items:
-            - generic-web01
-            - generic-web02
+            - member1
+            - member2
