@@ -15,4 +15,4 @@
             port: "8080"
             validate_certs: "false"
         with_items:
-            - generic-web01
+            - member1
