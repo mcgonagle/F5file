@@ -11,7 +11,7 @@
             state: "present"
             session_state: "enabled"
             host: "{{ item }}"
-            pool: "gw_pool"
+            pool: "pool1"
             port: "8080"
             validate_certs: "false"
         with_items:
